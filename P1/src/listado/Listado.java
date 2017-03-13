@@ -18,7 +18,7 @@ public class Listado {
     public Listado(String ruta) throws IOException {
         Stream<String> lineas = Files.lines(Paths.get(ruta));
         lineas.forEach(linea -> {
-
+            crearEmpleado(linea);
         });
     }
 
@@ -31,24 +31,26 @@ public class Listado {
 
     public void cargarArchivoAsignacionDivision(String ruta)  throws IOException {
         Stream<String> lineasDivision = Files.lines(Paths.get(ruta));
-        String division = lineasDivision.findFirst().get();
+        String division = lineasDivision.findFirst().orElseGet(null);
         Stream<String> lineasEmpleados = Files.lines(Paths.get(ruta)).skip(2);
         lineasEmpleados.forEach(linea -> {
-            lista.forEach((dni,empleado) -> {
-                if(dni==linea.toString())
-                    empleado.setDivision(Division.valueOf(division));
+            lista.entrySet().stream().filter(empleado -> (
+                    empleado.getKey()==linea.toString()
+                    )).forEach(empleado -> {
+                        empleado.getValue().setDivision(Division.valueOf(division));
             });
         });
     }
 
     public void cargarArchivoAsignacionDepartamento(String ruta) throws IOException {
         Stream<String> lineasDepartamento = Files.lines(Paths.get(ruta));
-        String departamento = lineasDepartamento.findFirst().get();
+        String departamento = lineasDepartamento.findFirst().orElseGet(null);
         Stream<String> lineasEmpleados = Files.lines(Paths.get(ruta)).skip(2);
         lineasEmpleados.forEach(linea -> {
-            lista.forEach((dni,empleado) -> {
-                if(dni==linea.toString())
-                    empleado.setDepartamento(Departamento.valueOf(departamento));
+            lista.entrySet().stream().filter(empleado -> (
+                empleado.getKey()==linea.toString()
+                )).forEach(empleado -> {
+                    empleado.getValue().setDepartamento(Departamento.valueOf(departamento));
             });
         });
     }
@@ -62,6 +64,9 @@ public class Listado {
     }
 
     public Map<Departamento, Long> obtenerContadoresDepartamento(Division div){
+        Stream<Map.Entry<String, Empleado>> flujo = lista.entrySet().stream().filter(empleado -> (
+                empleado.getValue().getDivision() == div
+        ));
 
     }
 
