@@ -3,6 +3,8 @@ package listado;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -59,19 +61,46 @@ public class Listado {
         return lista.size();
     }
 
-    public List<Empleado> buscarEmpleadosSinDepartamento(Division div){
-
-    }
-
     public Map<Departamento, Long> obtenerContadoresDepartamento(Division div){
-        Stream<Map.Entry<String, Empleado>> flujo = lista.entrySet().stream().filter(empleado -> (
-                empleado.getValue().getDivision() == div
-        ));
-
+        Map<Departamento, Long> contedoresDepartamento=new HashMap<>();
+        Stream<Departamento> departamentoStream=Stream.of(Departamento.values());
+        departamentoStream.forEach(departamento -> {
+            contedoresDepartamento.put(departamento, lista.entrySet().stream().filter(empleado -> (
+                    empleado.getValue().getDivision() == div && empleado.getValue().getDepartamento() == departamento
+            )).count());
+        });
+        return contedoresDepartamento;
     }
 
     public Map<Division, Map<Departamento, Long>> obtenerContadoresDivisionDepartamento(){
+        Map<Division, Map<Departamento, Long>> contadoresDivisionDepartamento = new HashMap<>();
+        Stream<Division> divisionStream=Stream.of(Division.values());
+        divisionStream.forEach(division -> contadoresDivisionDepartamento.put(division, obtenerContadoresDepartamento(division)));
+        return contadoresDivisionDepartamento;
+    }
 
+    public List<Empleado> buscarEmpleadosConDivisionSinDepartamento(){
+        List<Empleado> listaEmpleadosSD=new ArrayList<>();
+        lista.entrySet().stream().filter(empleado -> (
+                empleado.getValue().getDivision() != Division.DIVNA && empleado.getValue().getDepartamento() == Departamento.DEPNA
+        )).forEach(empleado -> listaEmpleadosSD.add(empleado.getValue()));
+        return listaEmpleadosSD;
+    }
+
+    public List<Empleado> buscarEmpleadosSinDivision(){
+        List<Empleado> listaEmpleadosSD=new ArrayList<>();
+        lista.entrySet().stream().filter(empleado -> (
+                empleado.getValue().getDivision() == Division.DIVNA
+        )).forEach(empleado -> listaEmpleadosSD.add(empleado.getValue()));
+        return listaEmpleadosSD;
+    }
+
+    public List<Empleado> buscarEmpleadosSinDepartamento(Division div){
+        List<Empleado> listaEmpleadosSD=new ArrayList<>();
+        lista.entrySet().stream().filter(empleado -> (
+                empleado.getValue().getDivision() == div && empleado.getValue().getDepartamento() == Departamento.DEPNA
+        )).forEach(empleado -> listaEmpleadosSD.add(empleado.getValue()));
+        return listaEmpleadosSD;
     }
 
     @Override
