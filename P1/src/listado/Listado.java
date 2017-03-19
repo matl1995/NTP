@@ -15,7 +15,7 @@ import java.util.stream.Stream;
  * Created by m_ang on 09/03/2017.
  */
 public class Listado {
-    private Map<String, Empleado> lista;
+    private Map<String, Empleado> lista=new HashMap<>();
 
     public Listado(String ruta) throws IOException {
         Stream<String> lineas = Files.lines(Paths.get(ruta));
@@ -36,12 +36,15 @@ public class Listado {
         String division = lineasDivision.findFirst().orElseGet(null);
         Stream<String> lineasEmpleados = Files.lines(Paths.get(ruta)).skip(2);
         lineasEmpleados.forEach(linea -> {
-            lista.entrySet().stream().filter(empleado -> (
-                    empleado.getKey()==linea.toString()
-                    )).forEach(empleado -> {
-                        empleado.getValue().setDivision(Division.valueOf(division));
-            });
+            asignarDivision(linea,Division.valueOf(division));
         });
+    }
+
+    public void asignarDivision(String linea, Division div)
+    {
+        Pattern pattern = Pattern.compile("\\s");
+        List<String> infos = pattern.splitAsStream(linea).collect(Collectors.toList());
+        lista.get(infos.get(0)).setDivision(div);
     }
 
     public void cargarArchivoAsignacionDepartamento(String ruta) throws IOException {
@@ -49,12 +52,15 @@ public class Listado {
         String departamento = lineasDepartamento.findFirst().orElseGet(null);
         Stream<String> lineasEmpleados = Files.lines(Paths.get(ruta)).skip(2);
         lineasEmpleados.forEach(linea -> {
-            lista.entrySet().stream().filter(empleado -> (
-                empleado.getKey()==linea.toString()
-                )).forEach(empleado -> {
-                    empleado.getValue().setDepartamento(Departamento.valueOf(departamento));
-            });
+            asignarDepartamento(linea,Departamento.valueOf(departamento));
         });
+    }
+
+    public void asignarDepartamento(String linea, Departamento dep)
+    {
+        Pattern pattern = Pattern.compile("\\s");
+        List<String> infos = pattern.splitAsStream(linea).collect(Collectors.toList());
+        lista.get(infos.get(0)).setDepartamento(dep);
     }
 
     public int obtenerNumeroEmpleados(){
@@ -68,6 +74,7 @@ public class Listado {
             contedoresDepartamento.put(departamento, lista.entrySet().stream().filter(empleado -> (
                     empleado.getValue().getDivision() == div && empleado.getValue().getDepartamento() == departamento
             )).count());
+
         });
         return contedoresDepartamento;
     }
@@ -108,7 +115,7 @@ public class Listado {
        return lista.toString();
     }
 
-    public boolean hayDnisRepetidos(){
+    /*public boolean hayDnisRepetidos(){
 
     }
 
@@ -122,5 +129,5 @@ public class Listado {
 
     public Map<String,List<Empleado>> obtenerCorreosRepetidos(){
 
-    }
+    }*/
 }

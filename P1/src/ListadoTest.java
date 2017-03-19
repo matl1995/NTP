@@ -92,8 +92,7 @@ public class ListadoTest {
         // Se comprueba que los valores son DEPNA = 49, DEPSB = 48, DEPSM = 53, DEPSA = 41
         Long contadoresReferencia[]={49L,48L,53L,41L};
         Long contadoresCalculados[]=new Long[4];
-        assertArrayEquals(contadores.values().toArray(contadoresCalculados),
-                          contadoresReferencia);
+        assertArrayEquals(contadoresReferencia,contadores.values().toArray(contadoresCalculados));
     }
 
     /**
@@ -116,16 +115,16 @@ public class ListadoTest {
 
         // Se comprueban los resultado del metodo con los de referencia
         Long contadoresCalculados[]=new Long[4];
-        assertArrayEquals(contadores.get(Division.DIVNA).values().
-                toArray(contadoresCalculados),contadoresReferenciaNA);
-        assertArrayEquals(contadores.get(Division.DIVID).values().
-                toArray(contadoresCalculados),contadoresReferenciaID);
-        assertArrayEquals(contadores.get(Division.DIVHW).values().
-                toArray(contadoresCalculados),contadoresReferenciaHW);
-        assertArrayEquals(contadores.get(Division.DIVSW).values().
-                toArray(contadoresCalculados),contadoresReferenciaSW);
-        assertArrayEquals(contadores.get(Division.DIVSER).values().
-                toArray(contadoresCalculados),contadoresReferenciaSER);
+        assertArrayEquals(contadoresReferenciaNA,contadores.get(Division.DIVNA).values().
+                toArray(contadoresCalculados));
+        assertArrayEquals(contadoresReferenciaID,contadores.get(Division.DIVID).values().
+                toArray(contadoresCalculados));
+        assertArrayEquals(contadoresReferenciaHW,contadores.get(Division.DIVHW).values().
+                toArray(contadoresCalculados));
+        assertArrayEquals(contadoresReferenciaSW,contadores.get(Division.DIVSW).values().
+                toArray(contadoresCalculados));
+        assertArrayEquals(contadoresReferenciaSER,contadores.get(Division.DIVSER).values().
+                toArray(contadoresCalculados));
     }
 
     // Aqui habria que completar los casos de prueba para el resto de
