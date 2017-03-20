@@ -115,19 +115,41 @@ public class Listado {
        return lista.toString();
     }
 
-    /*public boolean hayDnisRepetidos(){
-
+    public boolean hayDnisRepetidos(){
+        List<String> listaDNI = lista.entrySet().stream().map(empleado -> empleado.getValue().getDni()).distinct().collect(Collectors.toList());
+        if(listaDNI.size()!=lista.size())
+            return true;
+        else
+            return false;
     }
 
-    public Map<String,List<Empleado>> obtenerDnisRepetidos(){
+    /*public Map<String,List<Empleado>> obtenerDnisRepetidos(){
 
-    }
+    }*/
 
     public boolean hayCorreosRepetidos(){
-
+        List<String> listaEmail = lista.entrySet().stream().map(empleado -> empleado.getValue().getEmail()).distinct().collect(Collectors.toList());
+        if(listaEmail.size()!=lista.size())
+            return true;
+        else
+            return false;
     }
 
     public Map<String,List<Empleado>> obtenerCorreosRepetidos(){
+        Map<String,List<Empleado>> correos = new HashMap<>();
+        Map<String,List<Empleado>> correosRepetidos = new HashMap<>();
+        lista.entrySet().stream().map(empleado -> empleado.getValue().getEmail()).distinct().forEach(email -> {
+            List<Empleado> lista_empleados=new ArrayList<>();
+            lista.entrySet().stream().filter(empleado -> (
+                    empleado.getValue().getEmail() == email
+            )).forEach(empleado -> lista_empleados.add(empleado.getValue()));
+            correos.put(email,lista_empleados);
+        });
 
-    }*/
+        correos.entrySet().stream().filter(correo -> (
+                correo.getValue().size() > 1
+        )).forEach(correo -> correosRepetidos.put(correo.getKey(),correo.getValue()));
+        System.out.println(correosRepetidos.toString());
+        return correosRepetidos;
+    }
 }

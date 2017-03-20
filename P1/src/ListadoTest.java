@@ -129,4 +129,58 @@ public class ListadoTest {
 
     // Aqui habria que completar los casos de prueba para el resto de
     // metodos a ofrecer por la clase Listado
+
+    /**
+     * Test del procedimiento de asignacion de grupos procesando
+     * los archivos de asignacion. Tambien implica la prueba de
+     * busqueda de empleados sin division
+     * @throws Exception
+     */
+    @Test
+    public void testCargarArchivosAsignacionSinDivision() throws Exception {
+        // Se obtienen los empleados no asignados a una division
+        assert(listado.buscarEmpleadosSinDivision().size() == 213);
+    }
+
+    /**
+     * Test del procedimiento de asignacion de grupos procesando
+     * los archivos de asignacion. Tambien implica la prueba de
+     * busqueda de empleados con division pero sin departamento
+     * @throws Exception
+     */
+    @Test
+    public void testCargarArchivosAsignacionConDivisionSinDepartamento() throws Exception {
+        // Se obtienen los empleados asignados a una division pero no a un departamento
+        assert(listado.buscarEmpleadosConDivisionSinDepartamento().size() == 189);
+    }
+
+    /**
+     * Test del procedimiento comprobar si hay DNIs repetidos
+     * @throws Exception
+     */
+    @Test
+    public void testHayDniRepetidos() throws Exception {
+        // Se comprueba que si que hay dni repetidos
+        assert(listado.hayDnisRepetidos() == false);
+    }
+
+    /**
+     * Test del procedimiento comprobar si hay Emails repetidos
+     * @throws Exception
+     */
+    @Test
+    public void testHayEmailsRepetidos() throws Exception {
+        // Se comprueba que si que hay dni repetidos
+        assert(listado.hayCorreosRepetidos() == true);
+    }
+
+    /**
+     * Test del procedimiento de devolver los emails repetidos
+     * @throws Exception
+     */
+    @Test
+    public void testDevolverEmailsRepetidos() throws Exception {
+        // Se comprueba que hay el numero exacto de emails repetidos
+        assert(listado.obtenerCorreosRepetidos().size() == 9);
+    }
 }
