@@ -138,18 +138,18 @@ public class Listado {
     public Map<String,List<Empleado>> obtenerCorreosRepetidos(){
         Map<String,List<Empleado>> correos = new HashMap<>();
         Map<String,List<Empleado>> correosRepetidos = new HashMap<>();
-        lista.entrySet().stream().map(empleado -> empleado.getValue().getEmail()).distinct().forEach(email -> {
+        lista.entrySet().stream().forEach(empleado -> {
             List<Empleado> lista_empleados=new ArrayList<>();
-            lista.entrySet().stream().filter(empleado -> (
-                    empleado.getValue().getEmail() == email
-            )).forEach(empleado -> lista_empleados.add(empleado.getValue()));
-            correos.put(email,lista_empleados);
+            lista.entrySet().stream().filter(emp -> (
+                    emp.getValue().getEmail() == empleado.getValue().getEmail()
+            )).forEach(emp -> lista_empleados.add(emp.getValue()));
+            correos.put(empleado.getValue().getEmail(),lista_empleados);
         });
 
         correos.entrySet().stream().filter(correo -> (
                 correo.getValue().size() > 1
         )).forEach(correo -> correosRepetidos.put(correo.getKey(),correo.getValue()));
         System.out.println(correosRepetidos.toString());
-        return correosRepetidos;
+        return(correos.entrySet().stream().filter(correo -> correo.getValue().size() > 1));
     }
 }
