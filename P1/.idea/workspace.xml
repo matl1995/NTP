@@ -49,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Listado.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Listado.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/listado/Listado.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="140" column="80" lean-forward="false" selection-start-line="140" selection-start-column="80" selection-end-line="140" selection-end-column="80" />
+            <state relative-caret-position="303">
+              <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -61,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ListadoTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ListadoTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ListadoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="183" column="60" lean-forward="false" selection-start-line="183" selection-start-column="60" selection-end-line="183" selection-end-column="60" />
+            <state relative-caret-position="209">
+              <caret line="192" column="60" lean-forward="false" selection-start-line="192" selection-start-column="60" selection-end-line="192" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -84,6 +84,8 @@
     <findStrings>
       <find>contadores</find>
       <find>div</find>
+      <find>2</find>
+      <find>1</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -129,6 +131,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -176,7 +179,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -676,44 +678,45 @@
       <workItem from="1490085619206" duration="575000" />
       <workItem from="1490175816389" duration="530000" />
       <workItem from="1490177082969" duration="301000" />
-      <workItem from="1490198245797" duration="1540000" />
+      <workItem from="1490198245797" duration="1576000" />
+      <workItem from="1490207619923" duration="2446000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ListadoTest - 2017.03.22 at 10h 52m 17s.xml">
+    <history-entry file="ListadoTest - 2017.03.22 at 20h 05m 38s.xml">
       <configuration name="ListadoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ListadoTest - 2017.03.22 at 11h 05m 48s.xml">
+    <history-entry file="ListadoTest - 2017.03.22 at 20h 07m 05s.xml">
       <configuration name="ListadoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ListadoTest - 2017.03.22 at 11h 06m 22s.xml">
+    <history-entry file="ListadoTest - 2017.03.22 at 20h 16m 57s.xml">
       <configuration name="ListadoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ListadoTest - 2017.03.22 at 11h 07m 01s.xml">
+    <history-entry file="ListadoTest - 2017.03.22 at 20h 17m 36s.xml">
       <configuration name="ListadoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ListadoTest - 2017.03.22 at 17h 02m 52s.xml">
+    <history-entry file="ListadoTest - 2017.03.22 at 20h 18m 21s.xml">
       <configuration name="ListadoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ListadoTest - 2017.03.22 at 17h 03m 16s.xml">
+    <history-entry file="ListadoTest - 2017.03.22 at 20h 18m 56s.xml">
       <configuration name="ListadoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ListadoTest - 2017.03.22 at 17h 03m 36s.xml">
+    <history-entry file="ListadoTest - 2017.03.22 at 20h 23m 16s.xml">
       <configuration name="ListadoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ListadoTest - 2017.03.22 at 17h 06m 39s.xml">
+    <history-entry file="ListadoTest - 2017.03.22 at 20h 27m 43s.xml">
       <configuration name="ListadoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ListadoTest - 2017.03.22 at 17h 12m 19s.xml">
+    <history-entry file="ListadoTest - 2017.03.22 at 20h 29m 00s.xml">
       <configuration name="ListadoTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ListadoTest - 2017.03.22 at 17h 18m 48s.xml">
+    <history-entry file="ListadoTest - 2017.03.22 at 20h 29m 46s.xml">
       <configuration name="ListadoTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39255000" />
+    <option name="totallyTimeSpent" value="41737000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="40" width="1368" height="729" extended-state="6" />
@@ -1179,21 +1182,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ListadoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="183" column="60" lean-forward="false" selection-start-line="183" selection-start-column="60" selection-end-line="183" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/listado/Listado.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="140" column="80" lean-forward="false" selection-start-line="140" selection-start-column="80" selection-end-line="140" selection-end-column="80" />
+        <state relative-caret-position="303">
+          <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ListadoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="192" column="60" lean-forward="false" selection-start-line="192" selection-start-column="60" selection-end-line="192" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>

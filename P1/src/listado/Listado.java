@@ -123,9 +123,22 @@ public class Listado {
             return false;
     }
 
-    /*public Map<String,List<Empleado>> obtenerDnisRepetidos(){
+    public Map<String,List<Empleado>> obtenerDnisRepetidos(){
+        Map<String,List<Empleado>> dnis = new HashMap<>();
+        Map<String,List<Empleado>> dnisRepetidos = new HashMap<>();
+        lista.entrySet().stream().forEach(empleado -> {
+            List<Empleado> lista_empleados=new ArrayList<>();
+            lista.values().stream().filter(emp -> (
+                    emp.getDni().compareTo(empleado.getValue().getDni()) == 0
+            )).forEach(emp -> lista_empleados.add(emp));
+            dnis.put(empleado.getValue().getDni(),lista_empleados);
+        });
 
-    }*/
+        dnis.entrySet().stream().filter(dni -> (
+                dni.getValue().size() > 1
+        )).forEach(dni -> dnisRepetidos.put(dni.getKey(),dni.getValue()));
+        return dnisRepetidos;
+    }
 
     public boolean hayCorreosRepetidos(){
         List<String> listaEmail = lista.entrySet().stream().map(empleado -> empleado.getValue().getEmail()).distinct().collect(Collectors.toList());
@@ -138,20 +151,18 @@ public class Listado {
     public Map<String,List<Empleado>> obtenerCorreosRepetidos(){
         Map<String,List<Empleado>> correos = new HashMap<>();
         Map<String,List<Empleado>> correosRepetidos = new HashMap<>();
-        //Buscar el error en las siguientes lineas hasta el siguiente comentario
         lista.entrySet().stream().forEach(empleado -> {
             List<Empleado> lista_empleados=new ArrayList<>();
-            lista.entrySet().stream().filter(emp -> (
-                    emp.getValue().getEmail() == empleado.getValue().getEmail()
-            )).forEach(emp -> lista_empleados.add(emp.getValue()));
+            lista.values().stream().filter(emp -> (
+                    emp.getEmail().compareTo(empleado.getValue().getEmail()) == 0
+            )).forEach(emp -> lista_empleados.add(emp));
             correos.put(empleado.getValue().getEmail(),lista_empleados);
         });
-        //correos.entrySet().forEach(correo -> System.out.println("DNI: "+correo.getKey()+" correos: "+correo.getValue().size()));
 
         correos.entrySet().stream().filter(correo -> (
                 correo.getValue().size() > 1
         )).forEach(correo -> correosRepetidos.put(correo.getKey(),correo.getValue()));
-        //System.out.println(correosRepetidos.toString());
+
         return correosRepetidos;
     }
 }
