@@ -52,8 +52,8 @@
       <file leaf-file-name="Listado.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/listado/Listado.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="152" column="89" lean-forward="false" selection-start-line="152" selection-start-column="89" selection-end-line="152" selection-end-column="89" />
+            <state relative-caret-position="73">
+              <caret line="140" column="80" lean-forward="false" selection-start-line="140" selection-start-column="80" selection-end-line="140" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -175,8 +175,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -676,28 +676,11 @@
       <workItem from="1490085619206" duration="575000" />
       <workItem from="1490175816389" duration="530000" />
       <workItem from="1490177082969" duration="301000" />
+      <workItem from="1490198245797" duration="1540000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ListadoTest - 2017.03.20 at 10h 38m 48s.xml">
-      <configuration name="ListadoTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ListadoTest - 2017.03.20 at 10h 56m 24s.xml">
-      <configuration name="ListadoTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ListadoTest - 2017.03.20 at 11h 05m 52s.xml">
-      <configuration name="ListadoTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ListadoTest - 2017.03.20 at 11h 06m 33s.xml">
-      <configuration name="ListadoTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ListadoTest - 2017.03.20 at 11h 19m 25s.xml">
-      <configuration name="ListadoTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ListadoTest - 2017.03.22 at 10h 43m 57s.xml">
-      <configuration name="ListadoTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ListadoTest - 2017.03.22 at 10h 52m 17s.xml">
       <configuration name="ListadoTest" configurationId="JUnit" />
     </history-entry>
@@ -710,9 +693,27 @@
     <history-entry file="ListadoTest - 2017.03.22 at 11h 07m 01s.xml">
       <configuration name="ListadoTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ListadoTest - 2017.03.22 at 17h 02m 52s.xml">
+      <configuration name="ListadoTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ListadoTest - 2017.03.22 at 17h 03m 16s.xml">
+      <configuration name="ListadoTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ListadoTest - 2017.03.22 at 17h 03m 36s.xml">
+      <configuration name="ListadoTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ListadoTest - 2017.03.22 at 17h 06m 39s.xml">
+      <configuration name="ListadoTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ListadoTest - 2017.03.22 at 17h 12m 19s.xml">
+      <configuration name="ListadoTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ListadoTest - 2017.03.22 at 17h 18m 48s.xml">
+      <configuration name="ListadoTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37715000" />
+    <option name="totallyTimeSpent" value="39255000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="40" width="1368" height="729" extended-state="6" />
@@ -1188,8 +1189,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/listado/Listado.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="152" column="89" lean-forward="false" selection-start-line="152" selection-start-column="89" selection-end-line="152" selection-end-column="89" />
+        <state relative-caret-position="73">
+          <caret line="140" column="80" lean-forward="false" selection-start-line="140" selection-start-column="80" selection-end-line="140" selection-end-column="80" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

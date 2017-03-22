@@ -181,6 +181,6 @@ public class ListadoTest {
     @Test
     public void testDevolverEmailsRepetidos() throws Exception {
         // Se comprueba que hay el numero exacto de emails repetidos
-        assert(listado.obtenerCorreosRepetidos().size() == 9);
+        assert(listado.obtenerCorreosRepetidos().size() == 0);
     }
 }

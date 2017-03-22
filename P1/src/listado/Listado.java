@@ -138,6 +138,7 @@ public class Listado {
     public Map<String,List<Empleado>> obtenerCorreosRepetidos(){
         Map<String,List<Empleado>> correos = new HashMap<>();
         Map<String,List<Empleado>> correosRepetidos = new HashMap<>();
+        //Buscar el error en las siguientes lineas hasta el siguiente comentario
         lista.entrySet().stream().forEach(empleado -> {
             List<Empleado> lista_empleados=new ArrayList<>();
             lista.entrySet().stream().filter(emp -> (
@@ -145,11 +146,12 @@ public class Listado {
             )).forEach(emp -> lista_empleados.add(emp.getValue()));
             correos.put(empleado.getValue().getEmail(),lista_empleados);
         });
+        //correos.entrySet().forEach(correo -> System.out.println("DNI: "+correo.getKey()+" correos: "+correo.getValue().size()));
 
         correos.entrySet().stream().filter(correo -> (
                 correo.getValue().size() > 1
         )).forEach(correo -> correosRepetidos.put(correo.getKey(),correo.getValue()));
-        System.out.println(correosRepetidos.toString());
-        return(correos.entrySet().stream().filter(correo -> correo.getValue().size() > 1));
+        //System.out.println(correosRepetidos.toString());
+        return correosRepetidos;
     }
 }
