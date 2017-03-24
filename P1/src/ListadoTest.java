@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
- * Práctica 1 NTP
+ * @author Miguel Ángel Torres López
  */
 public class ListadoTest {
     private static Listado listado;
@@ -64,7 +64,7 @@ public class ListadoTest {
     /**
      * Test del procedimiento de asignacion de grupos procesando
      * los archivos de asignacion. Tambien implica la prueba de
-     * busqueda de empleados sin grupo asignado en alguna asignatura
+     * busqueda de empleados sin departamento asignado en alguna division
      * @throws Exception
      */
     @Test

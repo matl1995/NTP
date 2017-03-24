@@ -1,7 +1,7 @@
 package listado;
 
 /**
- * Created by m_ang on 09/03/2017.
+ *  @author Miguel Ángel Torres López
  */
 public class Empleado {
     private String dni;
