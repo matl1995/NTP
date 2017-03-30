@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
+ * Clase que se encarga de testear el código creado
  * @author Miguel Ángel Torres López
  */
 public class ListadoTest {
