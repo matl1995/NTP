@@ -83,15 +83,14 @@ object Main {
     * @param comparar Es la funcion que se va a utilizar para comparar los elementos deseados, y se recibe como argumento
     * @tparam A Indica que el tipo de los elementos aun no está definido por lo que puede redibir cualquier tipo de elemtentos en los lugares que ocupa A
     */
-  def busquedaBinariaGenerica[A](lista:List[A], elem: A, comparar:(A,A)=>Boolean)
-  {
+  def busquedaBinariaGenerica[A](lista:List[A], elem: A, comparar:(A,A)=>Boolean):Boolean= {
     @annotation.tailrec
     def iterar(indice:Int):Boolean = {
       // Caso base 1: no pasarse de longitud
       if(indice == lista.length-1) comparar(lista(indice), elem) //Si estoy en la ultima posicion de la lista llamo a comparar
       // Caso base 2: en cuanto encuentro un par de elementos no ordenados,
       // se devuelve false
-      else if(!comparar(lista(indice), elem)) false
+      else if(comparar(lista(indice), elem)) true
       else iterar(indice+1)
     }
 

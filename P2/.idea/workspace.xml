@@ -19,18 +19,8 @@
       <file leaf-file-name="Main.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="93" column="44" lean-forward="false" selection-start-line="93" selection-start-column="44" selection-end-line="93" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChequearBalanceSuite.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/ChequearBalanceSuite.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="100">
+              <caret line="86" column="4" lean-forward="false" selection-start-line="86" selection-start-column="4" selection-end-line="97" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -39,21 +29,11 @@
       <file leaf-file-name="BusquedaBinariaGenericaSuite.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/BusquedaBinariaGenericaSuite.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="208">
+              <caret line="138" column="200" lean-forward="false" selection-start-line="138" selection-start-column="200" selection-end-line="138" selection-end-column="200" />
               <folding>
                 <element signature="e#1#30#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TrianguloPascalSuite.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/TrianguloPascalSuite.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="21" column="4" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="22" selection-end-column="65" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -70,8 +50,8 @@
       <list>
         <option value="$PROJECT_DIR$/test/TrianguloPascalSuite.scala" />
         <option value="$PROJECT_DIR$/test/ContarCambiosPosiblesSuite.scala" />
-        <option value="$PROJECT_DIR$/src/Main.scala" />
         <option value="$PROJECT_DIR$/test/ChequearBalanceSuite.scala" />
+        <option value="$PROJECT_DIR$/src/Main.scala" />
         <option value="$PROJECT_DIR$/test/BusquedaBinariaGenericaSuite.scala" />
       </list>
     </option>
@@ -173,7 +153,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="JUnit.ChequearBalanceSuite">
+  <component name="RunManager" selected="JUnit.BusquedaBinariaGenericaSuite">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -238,6 +218,27 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ContarCambiosPosiblesSuite" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="BusquedaBinariaGenericaSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="P2" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BusquedaBinariaGenericaSuite" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -683,18 +684,20 @@
       <envs />
       <method />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.TrianguloPascalSuite" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.ChequearBalanceSuite" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.ContarCambiosPosiblesSuite" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.BusquedaBinariaGenericaSuite" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.ChequearBalanceSuite" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ContarCambiosPosiblesSuite" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.TrianguloPascalSuite" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Main" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.BusquedaBinariaGenericaSuite" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ChequearBalanceSuite" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ContarCambiosPosiblesSuite" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.TrianguloPascalSuite" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -719,48 +722,48 @@
       <workItem from="1493019869146" duration="8000" />
       <workItem from="1493025611492" duration="804000" />
       <workItem from="1493048813608" duration="2378000" />
-      <workItem from="1493141572579" duration="4601000" />
+      <workItem from="1493141572579" duration="10224000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ChequearBalanceSuite - 2017.04.25 at 20h 20m 54s.xml">
-      <configuration name="ChequearBalanceSuite" configurationId="JUnit" />
+    <history-entry file="BusquedaBinariaGenericaSuite - 2017.04.26 at 00h 44m 57s.xml">
+      <configuration name="BusquedaBinariaGenericaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChequearBalanceSuite - 2017.04.25 at 20h 21m 50s.xml">
-      <configuration name="ChequearBalanceSuite" configurationId="JUnit" />
+    <history-entry file="BusquedaBinariaGenericaSuite - 2017.04.26 at 00h 45m 17s.xml">
+      <configuration name="BusquedaBinariaGenericaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChequearBalanceSuite - 2017.04.25 at 20h 24m 27s.xml">
-      <configuration name="ChequearBalanceSuite" configurationId="JUnit" />
+    <history-entry file="BusquedaBinariaGenericaSuite - 2017.04.26 at 00h 46m 30s.xml">
+      <configuration name="BusquedaBinariaGenericaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChequearBalanceSuite - 2017.04.25 at 20h 29m 03s.xml">
-      <configuration name="ChequearBalanceSuite" configurationId="JUnit" />
+    <history-entry file="BusquedaBinariaGenericaSuite - 2017.04.26 at 00h 46m 42s.xml">
+      <configuration name="BusquedaBinariaGenericaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChequearBalanceSuite - 2017.04.25 at 20h 35m 49s.xml">
-      <configuration name="ChequearBalanceSuite" configurationId="JUnit" />
+    <history-entry file="BusquedaBinariaGenericaSuite - 2017.04.26 at 00h 46m 51s.xml">
+      <configuration name="BusquedaBinariaGenericaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChequearBalanceSuite - 2017.04.25 at 20h 37m 29s.xml">
-      <configuration name="ChequearBalanceSuite" configurationId="JUnit" />
+    <history-entry file="BusquedaBinariaGenericaSuite - 2017.04.26 at 00h 48m 10s.xml">
+      <configuration name="BusquedaBinariaGenericaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChequearBalanceSuite - 2017.04.25 at 20h 44m 37s.xml">
-      <configuration name="ChequearBalanceSuite" configurationId="JUnit" />
+    <history-entry file="BusquedaBinariaGenericaSuite - 2017.04.26 at 00h 54m 49s.xml">
+      <configuration name="BusquedaBinariaGenericaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChequearBalanceSuite - 2017.04.25 at 20h 45m 10s.xml">
-      <configuration name="ChequearBalanceSuite" configurationId="JUnit" />
+    <history-entry file="BusquedaBinariaGenericaSuite - 2017.04.26 at 01h 00m 27s.xml">
+      <configuration name="BusquedaBinariaGenericaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ContarCambiosPosiblesSuite - 2017.04.25 at 20h 16m 58s.xml">
-      <configuration name="ContarCambiosPosiblesSuite" configurationId="JUnit" />
+    <history-entry file="BusquedaBinariaGenericaSuite - 2017.04.26 at 01h 00m 31s.xml">
+      <configuration name="BusquedaBinariaGenericaSuite" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ContarCambiosPosiblesSuite - 2017.04.25 at 20h 20m 31s.xml">
-      <configuration name="ContarCambiosPosiblesSuite" configurationId="JUnit" />
+    <history-entry file="BusquedaBinariaGenericaSuite - 2017.04.26 at 01h 04m 57s.xml">
+      <configuration name="BusquedaBinariaGenericaSuite" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17617000" />
+    <option name="totallyTimeSpent" value="23240000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -771,7 +774,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -858,40 +861,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/ContarCambiosPosiblesSuite.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
+        <state relative-caret-position="446">
           <caret line="34" column="115" lean-forward="false" selection-start-line="34" selection-start-column="115" selection-end-line="34" selection-end-column="115" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/ChequearBalanceSuite.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/TrianguloPascalSuite.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="21" column="4" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="22" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="93" column="44" lean-forward="false" selection-start-line="93" selection-start-column="44" selection-end-line="93" selection-end-column="44" />
+        <state relative-caret-position="100">
+          <caret line="86" column="4" lean-forward="false" selection-start-line="86" selection-start-column="4" selection-end-line="97" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/ChequearBalanceSuite.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="e#2#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/TrianguloPascalSuite.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" column="2" lean-forward="false" selection-start-line="12" selection-start-column="2" selection-end-line="17" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/BusquedaBinariaGenericaSuite.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="208">
+          <caret line="138" column="200" lean-forward="false" selection-start-line="138" selection-start-column="200" selection-end-line="138" selection-end-column="200" />
           <folding>
             <element signature="e#1#30#0" expanded="true" />
           </folding>
