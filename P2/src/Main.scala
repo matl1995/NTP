@@ -1,7 +1,6 @@
 
 /**
-  * Objeto singleton para probar la funcionalidad del triangulo
-  * de Pascal
+  * Author: Miguel Ángel Torres López
   */
 object Main {
 

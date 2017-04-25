@@ -5,6 +5,9 @@ import org.scalatest.FunSuite
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 
+/**
+  * Author:Miguel Ángel Torres López
+  */
 @RunWith(classOf[JUnitRunner])
 class ChequearBalanceSuite extends FunSuite {
   import Main.chequearBalance
