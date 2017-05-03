@@ -9,15 +9,17 @@
 * @param funcionCaracteristica
 */
 class Conjunto(val funcionCaracteristica: Int => Boolean) {
+
   /**
   * Crea una cadena con el contenido completo del conjunto
   *
-  * @return
+  * @return devuelve un string que contiene el contenido del conjunto
   */
   override def toString(): String = {
     val elementos = for (i <- -Conjunto.LIMITE to Conjunto.LIMITE if funcionCaracteristica(i)) yield i
       elementos.mkString("{", ",", "}")
     }
+
   /**
   * Metodo para determinar la pertenencia de un elemento al
   * conjunto
