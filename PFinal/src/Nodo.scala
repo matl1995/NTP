@@ -1,4 +1,4 @@
 /**
-  * Created by m_ang on 28/05/2017.
+  * Author: Miguel Ángel Torres López
   */
 abstract class Nodo

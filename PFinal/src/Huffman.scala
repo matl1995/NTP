@@ -1,5 +1,5 @@
 /**
-  * Created by m_ang on 28/05/2017.
+  * Author: Miguel Ángel Torres López
   */
 object Huffman {
 

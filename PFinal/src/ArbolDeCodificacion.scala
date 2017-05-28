@@ -1,5 +1,5 @@
 /**
-  * Created by m_ang on 28/05/2017.
+  * Author: Miguel Ángel Torres López
   */
 object ArbolDeCodificacion {
 
@@ -78,7 +78,6 @@ object ArbolDeCodificacion {
     * @return
     */
   def generarArbolCodificacion(texto: List[Char]): Nodo =
-    hasta(singleton, combinar)(ordenarParejas(obtenerFrecuencias(texto)))  // llamada a hasta sobre el texto
-      .head                                                                                 // obtiene el primer (y único) elemento
+    hasta(singleton, combinar)(ordenarParejas(obtenerFrecuencias(texto))).head  //Llamo a "hasta" sobre el texto y obtiengo el primer elemento (que es el único)
 
 }
