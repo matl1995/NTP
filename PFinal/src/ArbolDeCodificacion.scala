@@ -12,35 +12,36 @@ object ArbolDeCodificacion {
   def stringAListaCaracteres(cadena: String): List[Char] = cadena.toList
 
   /**
-    * Calcula la frecuencia de aparición de cada carácter en el texto a analizar
+    * Calcula las frecuencias de aparición de cada caracter
     *
-    * @param texto
-    * @return
+    * @param texto Recibe una lista de caracteres sobre la que se van a calcular las frecuencias
+    * @return Devuelve una lista que contiene pares caracter junto con un entero que contiene las veces que aparece ese caracter
     */
   def obtenerFrecuencias(texto: List[Char]): List[(Char, Int)] =
-    texto.map(char => (char, texto.count(otherChar => otherChar == char))).distinct //Mapeo las ocurrencias de cada caracter y elimino los repetidos
+    //En cada caracter compruebo cuantos hay igual a este usando mapeo, guardo ese par en una lista y borro las demas apariciones de ese caracter
+    texto.map(char => (char, texto.count(otherChar => otherChar == char))).distinct
 
 
   /**
-    * Genera una lista con toidos los nodos hoja del árbol de codificación. Esta lista de nodos terminales está
-    * ordenada por pesos de forma ascendente
+    * Crea una lista de nodos hoja que estan ordenados por el peso de cada nodo, estando los caracteres que menos veces
+    * aparecen al principio, y los que mas al final
     *
-    * @param ocurrencias
-    * @return
+    * @param caracteres_pesos Recibe una lista de pares caracter, peso(frecuencia)
+    * @return Devuelve una lista con los nodos hoja
     */
-  def ordenarParejas(ocurrencias: List[(Char, Int)]): List[NodoHoja] =
-    ocurrencias
-      .sortWith((ocurr1, ocurr2) => ocurr1._2 < ocurr2._2)  // ordena de forma ascendente por peso
-      .map(ocurr => NodoHoja(ocurr._1, ocurr._2))           // mapea el resultado en una lista de nodos hoja
+  def ordenarParejas(caracteres_pesos: List[(Char, Int)]): List[NodoHoja] =
+    //Ordeno los pares nodo, peso de forma que el que tenga un peso menor vaya al principio de la lista
+    //Una vez ordenados, los mapeo a una lista con los nodos hoja
+    caracteres_pesos.sortWith((nodo1, nodo2) => nodo1._2 < nodo2._2).map(nodo => NodoHoja(nodo._1, nodo._2))
 
 
   /**
-    * Comprueba si una lista de nodos contiene un único elemento
+    * Comprueba si una lista de nodos contiene a un único elemento
     *
-    * @param nodos
-    * @return
+    * @param nodos Recibe una lista de nodos
+    * @return Devuelve true en caso de que la lista de nodos tenga solo 1 elemento, y false en caso contrario
     */
-  def singleton(nodos: List[Nodo]): Boolean = nodos.size == 1  // comprueba que solo hay un nodo
+  def singleton(nodos: List[Nodo]): Boolean = nodos.size == 1
 
   /**
     * Combina todos los nodos terminales

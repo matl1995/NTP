@@ -26,10 +26,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prueba.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="prueba.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/prueba.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
+            <state relative-caret-position="2278">
               <caret line="134" column="46" lean-forward="false" selection-start-line="134" selection-start-column="46" selection-end-line="134" selection-end-column="46" />
               <folding>
                 <element signature="e#77#93#0" expanded="true" />
@@ -41,18 +41,18 @@
       <file leaf-file-name="Huffman.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Huffman.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1122">
+            <state relative-caret-position="-206">
               <caret line="1" column="37" lean-forward="false" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArbolDeCodificacion.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ArbolDeCodificacion.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ArbolDeCodificacion.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="76" column="18" lean-forward="false" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="18" />
+            <state relative-caret-position="119">
+              <caret line="43" column="61" lean-forward="false" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -99,9 +99,9 @@
         <option value="$PROJECT_DIR$/src/NodoHoja.scala" />
         <option value="$PROJECT_DIR$/src/NodoInterno.scala" />
         <option value="$PROJECT_DIR$/src/Nodo.scala" />
-        <option value="$PROJECT_DIR$/src/ArbolDeCodificacion.scala" />
         <option value="$PROJECT_DIR$/src/Huffman.scala" />
         <option value="$PROJECT_DIR$/src/prueba.scala" />
+        <option value="$PROJECT_DIR$/src/ArbolDeCodificacion.scala" />
       </list>
     </option>
   </component>
@@ -653,12 +653,12 @@
       <updated>1495969584723</updated>
       <workItem from="1495969592528" duration="1707000" />
       <workItem from="1495971370209" duration="351000" />
-      <workItem from="1495979791065" duration="5878000" />
+      <workItem from="1495979791065" duration="7510000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7936000" />
+    <option name="totallyTimeSpent" value="9568000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -742,29 +742,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ArbolDeCodificacion.scala">
+    <entry file="file://$PROJECT_DIR$/src/prueba.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="76" column="18" lean-forward="false" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="2278">
+          <caret line="134" column="46" lean-forward="false" selection-start-line="134" selection-start-column="46" selection-end-line="134" selection-end-column="46" />
+          <folding>
+            <element signature="e#77#93#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Huffman.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1122">
+        <state relative-caret-position="-206">
           <caret line="1" column="37" lean-forward="false" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/prueba.scala">
+    <entry file="file://$PROJECT_DIR$/src/ArbolDeCodificacion.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="134" column="46" lean-forward="false" selection-start-line="134" selection-start-column="46" selection-end-line="134" selection-end-column="46" />
-          <folding>
-            <element signature="e#77#93#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="43" column="61" lean-forward="false" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
+          <folding />
         </state>
       </provider>
     </entry>
