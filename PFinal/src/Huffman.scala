@@ -3,121 +3,126 @@
   */
 object Huffman {
 
+  /**
+    * Esta función se encarga de calcular el peso asociado un nodo, que en caso de ser un nodo hoja será el numero
+    * de apariciones de ese caracter y en caso de ser un nodo intermedio será la suma de los pesos de sus nodos hijos
+    *
+    * @param nodo Recibe un nodo para el que la función va a calcular su peso
+    * @return Devuelve un entero que contiene el peso asociado a este nodo
+    */
+  def calcularPeso(nodo: Nodo): Int = nodo match {
+    case NodoHoja(_, peso) => peso //En caso de que sea un nodo hoja devuelve el dato miembro peso de NodoHoja
+    case NodoInterno(nodoIzquierda, nodoDerecha, _, _) => calcularPeso(nodoIzquierda) + calcularPeso(nodoDerecha) //En caso de ser nodo intermedio el peso es la suma de de los pesos de sus nodos hijos
+  }
+
+  /**
+    * Esta función va a recibir un nodo(arbol de codificación) y va a elaborar una lista con los caracteres
+    * que contiene dicho arbol
+    *
+    * @param nodo Recibe un nodo que es el nodo raiz del arbol de codificación
+    * @return Devuelve una lista con los caracteres del arbol de codificación
+    */
+  def obtenerCaracteres(nodo: Nodo): List[Char] = nodo match {
+    case NodoHoja(caracter, _) => List(caracter) //En caso de ser nodo hoja meto el caracter en una lista
+    case NodoInterno(nodoIzquierda, nodoDerecha, _, _) => List.concat(obtenerCaracteres(nodoIzquierda),obtenerCaracteres(nodoDerecha)) //En caso de ser nodo intermedio concateno la lista de caracteres de sus dos nodos hijo
+  }
+
+  /**
+    * Esta función recibe dos nodos(sub-arboles) y crea un arbol juntandolos
+    *
+    * @param nodoIzquierda Recibe un nodo que será el nodo hijo izquierdo del nuevo arbol
+    * @param nodoDerecha Recibe un nodo que será el nodo hijo derecho del nuevo arbol
+    * @return Devuelve un nodo, que será el nodo raiz del arbol creado de la unión de los dos subarboles
+    */
+  def generarArbol(nodoIzquierda: Nodo, nodoDerecha: Nodo): Nodo =
+    //Creamos un nuevo nodo de tipo interno, que tiene como hijos los nodos recibidos, de caracteres la unión de los de los hijos, y de pesos la suma de los de los hijos
+    NodoInterno(nodoIzquierda, nodoDerecha, List.concat(obtenerCaracteres(nodoIzquierda),obtenerCaracteres(nodoDerecha)), calcularPeso(nodoIzquierda) + calcularPeso(nodoDerecha))
+
+  /**
+    * Esta función se va a encargar de decodificar un texto siguiendo el algoritmo de Huffman
+    *
+    * @param arbol Recibe como parametro un nodo que contiene la raiz del arbol de Huffman
+    * @param textoCodificado Recibe como parametro una lista de int con el texto codificado en 0 y 1
+    * @return Devuelve una lista de caracteres que contiene el texto decodificado
+    */
+  def decodificar(arbol: Nodo, textoCodificado: List[Int]): List[Char] = {
+    def decodificar0(nodo: Nodo, textoCodificado: List[Int]): List[Char] =  //Creo una función auxiliar que es recursiva
+      nodo match {                                                                // Si el nodo coincide:
+        case NodoHoja(caracter, _) =>                                             //    1.Con un nodo hoja
+          if (textoCodificado.isEmpty) List(caracter)                             // Si el texto esta vacio, paramos y devolvemos la lista de caracteres
+          else caracter :: decodificar0(arbol, textoCodificado)                   // Si no,añado el caracter actual a la lista y hago llamada recursiva
+          case NodoInterno(izda, dcha, _, _) =>                                   //    2.Con un nodo interno
+          if (textoCodificado.head == 0) decodificar0(izda, textoCodificado.tail) // Si hay un 0, llamo a la función recursiva pasando el nodo izquierdo y quitando el primer elemento
+          else decodificar0(dcha, textoCodificado.tail)                           // Si no hay un 0 hay un 1, y llamo a la función recursiva con el nodo derecho y quitando el primer elemento
+      }
+    decodificar0(arbol, textoCodificado) //Lanzo la función auxiliar pasandole la raiz y el texto codificado entero
+  }
+
+  /**
+    * Esta función se va a encargar de codificar un texto siguiendo el algoritmo de Huffman
+    *
+    * @param arbol Recibe como parametro un nodo que contiene la raiz del arbol de Huffman
+    * @param texto Recibe como parametro una lista de char con el texto sin codificar
+    * @return Devuelve una lista de enteros que contienen el texto codificado en 0 y 1
+    */
+  def codificar(arbol: Nodo, texto: List[Char]): List[Int] = {
+    def codificar0(nodo: Nodo, texto: List[Char]): List[Int] =            //Creo una función auxiliar que es recursiva
+      nodo match {                                                                        // Si el nodo coincide:
+        case NodoHoja(_, _) =>                                                            //    1.Con un nodo hoja
+          if (texto.tail.isEmpty) List()                                                  // Si es el ultimo caracter, devuelvo la lista
+          else codificar0(arbol, texto.tail)                                              // Si no es el último caracter llamo a la función recursiva quitando el caracter actual
+        case NodoInterno(izda, dcha, _, _) =>                                             //    2.Con un nodo interno
+          if (obtenerCaracteres(izda).contains(texto.head)) 0 :: codificar0(izda, texto)  // Si el caracter está en la iquierda añado un 0 a la lista
+          else 1 :: codificar0(dcha, texto)                                               // Si el caracter está en la derecha añado un 1 a la lista
+      }
+    codificar0(arbol, texto)  //Lanzo la función auxiliar pasandole la raiz del arbol y el texto sin codificar entero
+  }
+
+  //Declaro el tipo TablaCodigo que contiene el codigo asociado a cada caracter en una lista
   type TablaCodigo = List[(Char, List[Int])]
 
   /**
-    * Recibe como argumento un nodo y devuelve el peso asociado calculando los pesos de los nodos inferiores, desde las
-    * hojas hasta sus hijos
+    * Esta función se va a encargar de codificar un caracter, usando una tabla
+    * para no tener que recorrer el arbol
     *
-    * @param n1
-    * @return
-    */
-  def calcularPeso(n1: Nodo): Int = n1 match {
-    case NodoHoja(_, peso) => peso
-    case NodoInterno(nodoIzquierda, nodoDerecha, _, _) => calcularPeso(nodoIzquierda) + calcularPeso(nodoDerecha)
-  }
-
-  /**
-    * Recibe como argumento un árbol de codificación (un nodo, su raíz) y devuelve la lista de caracteres que
-    * representa considerando todos los nodos inferiores
-    *
-    * @param n1
-    * @return
-    */
-  def obtenerCaracteres(n1: Nodo): List[Char] = n1 match {
-    case NodoHoja(caracter, _) => List(caracter)
-    case NodoInterno(nodoIzquierda, nodoDerecha, _, _) => List.concat(obtenerCaracteres(nodoIzquierda),obtenerCaracteres(nodoDerecha))
-  }
-
-  /**
-    * Recibe como argumento los subárboles a izquierda y derecha y genera un nuevo árbol a partir de ellos
-    *
-    * @param nodoIzquierda
-    * @param nodoDerecha
-    * @return
-    */
-  def generarArbol(nodoIzquierda: Nodo, nodoDerecha: Nodo): Nodo =
-    NodoInterno(nodoIzquierda, nodoDerecha, obtenerCaracteres(nodoIzquierda) ++ obtenerCaracteres(nodoDerecha), calcularPeso(nodoIzquierda) + calcularPeso(nodoDerecha))
-
-  /**
-    * Decodifica un texto siguiendo un código Huffman
-    *
-    * @param arbol
-    * @param textoCodificado
-    * @return
-    */
-  def decodificar(arbol: Nodo, textoCodificado: List[Int]): List[Char] = {
-    def decodificar0(nodo: Nodo, textoCodificado: List[Int]): List[Char] =
-      nodo match {                                                                // nodo actual
-        case NodoHoja(caracter, _) =>                                             // es nodo hoja
-          if (textoCodificado.isEmpty) List(caracter)                             // último bit => criterio de parada
-          else caracter :: decodificar0(arbol, textoCodificado)                   // no último bit => guarda el caracter y continúa
-        case NodoInterno(izda, dcha, _, _) =>                                  // es nodo intermedio
-          if (textoCodificado.head == 0) decodificar0(izda, textoCodificado.tail) // bit == 0 => recursividad por la izda con el resto de bits
-          else decodificar0(dcha, textoCodificado.tail)                           // bit == 1 => recursividad por la dcha con el resto de bits
-      }
-    decodificar0(arbol, textoCodificado) // comienza desde la raiz con el texto codificado completo
-  }
-
-  /**
-    * Codifica un texto siguiendo un código Huffman
-    *
-    * @param arbol
-    * @param texto
-    * @return
-    */
-  def codificar(arbol: Nodo, texto: List[Char]): List[Int] = {
-    def codificar0(nodo: Nodo, texto: List[Char]): List[Int] =
-      nodo match {                                                                        // nodo actual
-        case NodoHoja(_, _) =>                                                            // es nodo hoja
-          if (texto.tail.isEmpty) List()                                                  // último caracter => criterio de parada
-          else codificar0(arbol, texto.tail)                                              // no último caracter => continúa con el siguiente carácter
-        case NodoInterno(izda, dcha, _, _) =>                                          // es nodo intermedio
-          if (obtenerCaracteres(izda).contains(texto.head)) 0 :: codificar0(izda, texto)  // el carácter está a la izquierda => añade un 0
-          else 1 :: codificar0(dcha, texto)                                               // el carácter está a la derecha => añade un 1
-      }
-    codificar0(arbol, texto)  // comienza desde la raiz con el texto completo
-  }
-
-  /**
-    * Codifica un texto siguiendo un código Huffman usando una tabla para no tener que recorrer el árbol
-    *
-    * @param tabla
-    * @param caracter
-    * @return
+    * @param tabla Recibe como argumento una tabla que contiene los caracteres y su codigo asociado
+    * @param caracter Recibo como argumento el caracter que se quiere codificar
+    * @return Devuelvo una lista con los enteros(0 y 1) que simbolizan ese caracter codificado
     */
   def codificarConTabla(tabla: TablaCodigo)(caracter: Char): List[Int] =
-    tabla
-      .filter(entrada => entrada._1 == caracter)  // filtra para buscar la entrada con el carácter
-      .head._2                                    // devuelve el carácter encriptado
+    //Filtro la tabla para encontrar el caracter, y una vez lo tengo devuelvo el caracter codificado(lista de enteros(0 y 1))
+    tabla.filter(entrada => entrada._1 == caracter).head._2
 
   /**
-    * Crear tabla visitando el arbol de codificación
+    * Esta función va a crear una tablaCodigo a partir de el arbol de codificación
     *
-    * @param arbol
-    * @return
+    * @param arbol Contiene el nodo raiz del arbol que se va a pasar a tabla
+    * @return Devuelve una tablaCodigo que contiene cada caracter y su codificación asociada
     */
   def convertirArbolTabla(arbol: Nodo) : TablaCodigo = {
-    def convertirArbolTabla0(nodo: Nodo, lista: List[Int]): TablaCodigo = {
-      nodo match {                                                                          // nodo actual
-        case NodoHoja(caracter, _) => List((caracter, lista))                               // es nodo hoja => devuelve el caracter con la lista hasta llegar a él
-        case NodoInterno(izda, dcha, _, _) =>                                            // es nodo intermedio => recursividad a izda y dcha agregando un 0 y 1
-          convertirArbolTabla0(izda, lista :+ 0) ::: convertirArbolTabla0(dcha, lista :+ 1) //                       a la lista respectivamente
+    def convertirArbolTabla0(nodo: Nodo, lista: List[Int]): TablaCodigo = {     //Creo una función auxiliar recursiva
+      nodo match {                                                                       // Si el nodo coincide:
+        case NodoHoja(caracter, _) => List((caracter, lista))                            // 1.Con un nodo hoja: devuelvo el caracter con la lista de 0 y 1 hasta llegar a el
+        case NodoInterno(izda, dcha, _, _) =>                                            // 2.Con un nodo interno: Llamo a la función recursiva
+          convertirArbolTabla0(izda, lista :+ 0) ::: convertirArbolTabla0(dcha, lista :+ 1) //juntando la lista izquierda y derecha que obtendre, y añadiendo un 0(izquierda) y un 1(derecha) a la lista
       }
     }
-    convertirArbolTabla0(arbol, List()) // comienza con el arbol completo y una lista vacía
+    convertirArbolTabla0(arbol, List()) //Lanzo la función auxiliar con el arbol completo y una lista vacia
   }
 
   /**
-    * Codifica un texto siguiendo un código Huffman usando una tabla para no tener que recorrer el árbol
+    * Esta función se va a encargar de codificar un texto de forma mas rapida gracias a que dispone de una tabla con las codificaciones
+    * de los caracteres y no tiene que recorrer el arbol
     *
-    * @param arbol
-    * @param texto
-    * @return
+    * @param arbol Recibe como parametro el nodo raiz del arbol de codificación
+    * @param texto Recibe como parametro el texto(lista de caracteres) que se quiere codificar
+    * @return Devuelve una lista de enteros(0 y 1) que contiene el texto codificado
     */
   def codificacionRapida(arbol: Nodo)(texto: List[Char]): List[Int] = {
-    val tablaCodigo = convertirArbolTabla(arbol)                            // crea la tabla a partir del árbol
-    (for(caracter <- texto) yield codificarConTabla(tablaCodigo)(caracter)) // obtiene lista para cada caracter del texto
-      .flatten                                                              // convierte el List[List[Int]] a List[Int]
+    //Creo una tabla con la codificación a partir del arbol dado
+    val tablaCodigo = convertirArbolTabla(arbol)
+
+    //Para cada caracter del texto obtengo su codificación y convierto el List[List[int]] en List[int]
+    (for(caracter <- texto) yield codificarConTabla(tablaCodigo)(caracter)).flatten
   }
 }
