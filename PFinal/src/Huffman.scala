@@ -50,8 +50,8 @@ object Huffman {
       nodo match {                                                                // Si el nodo coincide:
         case NodoHoja(caracter, _) =>                                             //    1.Con un nodo hoja
           if (textoCodificado.isEmpty) List(caracter)                             // Si el texto esta vacio, paramos y devolvemos la lista de caracteres
-          else caracter :: decodificar0(arbol, textoCodificado)                   // Si no,añado el caracter actual a la lista y hago llamada recursiva
-          case NodoInterno(izda, dcha, _, _) =>                                   //    2.Con un nodo interno
+          else List(caracter) ++ decodificar0(arbol, textoCodificado)                   // Si no,añado el caracter actual a la lista y hago llamada recursiva
+        case NodoInterno(izda, dcha, _, _) =>                                     //    2.Con un nodo interno
           if (textoCodificado.head == 0) decodificar0(izda, textoCodificado.tail) // Si hay un 0, llamo a la función recursiva pasando el nodo izquierdo y quitando el primer elemento
           else decodificar0(dcha, textoCodificado.tail)                           // Si no hay un 0 hay un 1, y llamo a la función recursiva con el nodo derecho y quitando el primer elemento
       }
@@ -72,8 +72,8 @@ object Huffman {
           if (texto.tail.isEmpty) List()                                                  // Si es el ultimo caracter, devuelvo la lista
           else codificar0(arbol, texto.tail)                                              // Si no es el último caracter llamo a la función recursiva quitando el caracter actual
         case NodoInterno(izda, dcha, _, _) =>                                             //    2.Con un nodo interno
-          if (obtenerCaracteres(izda).contains(texto.head)) 0 :: codificar0(izda, texto)  // Si el caracter está en la iquierda añado un 0 a la lista
-          else 1 :: codificar0(dcha, texto)                                               // Si el caracter está en la derecha añado un 1 a la lista
+          if (obtenerCaracteres(izda).contains(texto.head)) List(0) ++ codificar0(izda, texto)  // Si el caracter está en la iquierda añado un 0 a la lista
+          else List(1) ++ codificar0(dcha, texto)                                               // Si el caracter está en la derecha añado un 1 a la lista
       }
     codificar0(arbol, texto)  //Lanzo la función auxiliar pasandole la raiz del arbol y el texto sin codificar entero
   }
@@ -104,7 +104,7 @@ object Huffman {
       nodo match {                                                                       // Si el nodo coincide:
         case NodoHoja(caracter, _) => List((caracter, lista))                            // 1.Con un nodo hoja: devuelvo el caracter con la lista de 0 y 1 hasta llegar a el
         case NodoInterno(izda, dcha, _, _) =>                                            // 2.Con un nodo interno: Llamo a la función recursiva
-          convertirArbolTabla0(izda, lista :+ 0) ::: convertirArbolTabla0(dcha, lista :+ 1) //juntando la lista izquierda y derecha que obtendre, y añadiendo un 0(izquierda) y un 1(derecha) a la lista
+          convertirArbolTabla0(izda, lista ++ List(0) ) ++ convertirArbolTabla0(dcha, lista ++ List(1)) //juntando la lista izquierda y derecha que obtendre, y añadiendo un 0(izquierda) y un 1(derecha) a la lista
       }
     }
     convertirArbolTabla0(arbol, List()) //Lanzo la función auxiliar con el arbol completo y una lista vacia
@@ -122,7 +122,14 @@ object Huffman {
     //Creo una tabla con la codificación a partir del arbol dado
     val tablaCodigo = convertirArbolTabla(arbol)
 
-    //Para cada caracter del texto obtengo su codificación y convierto el List[List[int]] en List[int]
-    (for(caracter <- texto) yield codificarConTabla(tablaCodigo)(caracter)).flatten
+    //Creo una variable lista de enteros que va a contener el resultado del texto codificado
+    var textoCodificado: List[Int]=List()
+
+    //Para cada caracter del texto obtengo su codificación y la añado a la lista que contiene el texto codificado
+    for(caracter <- texto)
+      textoCodificado++=codificarConTabla(tablaCodigo)(caracter)
+
+    //Devuelvo el texto codificado
+    textoCodificado
   }
 }

@@ -1,3 +1,5 @@
+import scala.io.Source
+
 /**
   * Author: Miguel Ángel Torres López
   */
@@ -6,9 +8,43 @@ object prueba extends App {
   import ArbolDeCodificacion._
 
   /**
-    * Código Huffman para el lenguaje francés, obtenido a partir de la página
-    * web http://fr.wikipedia.org/wiki/Fr%C3%A9quence_d%27apparition_des_lettres_en_fran%C3%A7ais
+    * PRUEBA 1
     */
+  //Creo los nodos hoja
+  val a = NodoHoja('a',8)
+  val b = NodoHoja('b',3)
+  val c = NodoHoja('c',1)
+  val d = NodoHoja('d',1)
+  val e = NodoHoja('e',1)
+  val f = NodoHoja('f',1)
+  val g = NodoHoja('g',1)
+  val h = NodoHoja('h',1)
+
+  //Ahora uno los nodos en un arbol con ayuda de la función generarArbol, hasta tener el arbol formado
+  val hd: Nodo = Huffman.generarArbol(h,d)
+  val gc: Nodo = Huffman.generarArbol(g,c)
+  val hdgc: Nodo = Huffman.generarArbol(hd,gc)
+  val ef: Nodo = Huffman.generarArbol(e,f)
+  val efb: Nodo = Huffman.generarArbol(ef,b)
+  val bcdefgh: Nodo = Huffman.generarArbol(hdgc,efb)
+  val arbolOriginal: Nodo = Huffman.generarArbol(a,bcdefgh)
+
+  //Ahora paso el string con el que se va a construir el arbol a una lista de caracteres
+  val listaCaracteres = stringAListaCaracteres("aaaaaaaabbbcdefgh")
+
+  //Ahora genero el arbol mediante el método generarArbolCodificación
+  val arbolGenerado = generarArbolCodificacion(listaCaracteres)
+
+  //Ahora compruebo si el arbol original(el que he creado a mano) es igual que el que obtiene el metodo generar... de la cadena dada
+  println("¿Es el arbol original igual al generado por el metodo?: " + (arbolOriginal == arbolGenerado))
+
+
+  /**
+    * PRUEBA 2
+    */
+
+  // Codigo Huffman para el lenguaje frances, obtenido a partir de la pagina
+  // web http://fr.wikipedia.org/wiki/Fr%C3%A9quence_d%27apparition_des_lettres_en_fran%C3%A7ais
   val codigoHuffmanFrances: Nodo = NodoInterno(
     NodoInterno(
       NodoInterno(
@@ -53,7 +89,8 @@ object prueba extends App {
             NodoHoja('p', 46335),
             List('m', 'p'), 91856),
           NodoHoja('u', 96785),
-          List('m', 'p', 'u'), 188641),
+          List('m', 'p', 'u'),
+          188641),
         List('o', 'l', 'm', 'p', 'u'), 355071),
       List('s', 'd', 'x', 'j', 'f', 'z', 'k', 'w', 'y', 'h', 'q', 'o', 'l', 'm', 'p', 'u'), 605362),
     NodoInterno(
@@ -86,62 +123,62 @@ object prueba extends App {
       List('r', 'c', 'v', 'g', 'b', 'n', 't', 'e', 'i', 'a'), 881025),
     List('s', 'd', 'x', 'j', 'f', 'z', 'k', 'w', 'y', 'h', 'q', 'o', 'l', 'm', 'p', 'u', 'r', 'c', 'v', 'g', 'b', 'n', 't', 'e', 'i', 'a'), 1486387)
 
-  /**
-    * Mensaje secreto a decodificar
-    */
-  val mensajeSecreto: List[Int] = List(0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1)
+
+  // Mensaje secreto a decodificar
+  val mensajeSecretoFrances: List[Int] = List(0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0,
+    0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1,
+    0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1)
+
+  //Ahora decodifico el mensaje pasando al metodo decodificar el Arbol de codificación para el prances y el mensaje codificado en frances
+  val mensajeDecodificadoFrances: List[Char] = decodificar(codigoHuffmanFrances, mensajeSecretoFrances)
+
+  //Ahora imprimo el mensaje decodificado en frances
+  println("Mensaje en frances decodificado: " + mensajeDecodificadoFrances.mkString)
+
+  //Ahora codifico el mensaje decodificado usando el metodo rapido(utiliza la tabla)
+  val codificadoRapido = codificacionRapida(codigoHuffmanFrances)(mensajeDecodificadoFrances)
+
+  //Ahora compruebo si el original coficicado es igual al codificado rapido(debe serlo)
+  println("¿Es el mensaje secreto frances igual al mensaje codificado de forma rapida?: " + (mensajeSecretoFrances == codificadoRapido))
+
 
   /**
-    * Se decodifica el mensaje
+    * PRUEBA 3
     */
-  val mensajeDecodificado: List[Char] = decodificar(codigoHuffmanFrances, mensajeSecreto)
+  //Creo la función que me permite generar un String desde un archivo
+  def leerArchivo(nombreArchivo : String) : String = {
+    Source.fromFile(nombreArchivo).getLines().mkString
+  }
 
-  println("Mensaje decodificado: " + mensajeDecodificado.mkString)
+  //Almaceno el string con el contenido de regenta.txt
+  val regenta:String=leerArchivo("./data/regenta.txt")
 
-  // Se intenta lo mismo con la tabla
-  val codificacionTabla = codificacionRapida(codigoHuffmanFrances)(mensajeDecodificado)
+  //Ahora paso el string con el que se va a construir el arbol a una lista de caracteres
+  val listaCaracteresRegenta = stringAListaCaracteres(regenta)
 
-  // Debe ser igual a mensajeSecreto
-  println("Mensaje original == mensaje codificado: " + (mensajeSecreto == codificacionTabla))
+  //Ahora genero el arbol mediante el método generarArbolCodificación
+  val arbolRegenta = generarArbolCodificacion(listaCaracteresRegenta)
 
-  /**
-    * ******************************************************************************************************************
-    */
 
-  /**
-    * Árbol original
-    */
-  val arbolOriginal = NodoInterno(
-    NodoHoja('a', 8),
-    NodoInterno(
-      NodoInterno(
-        NodoInterno(
-          NodoHoja('g', 1),
-          NodoHoja('h', 1),
-          List('g','h'), 2),
-        NodoInterno(
-          NodoHoja('e', 1),
-          NodoHoja('f', 1),
-          List('e','f'), 2),
-        List('g','h','e','f'), 4),
-      NodoInterno(
-        NodoInterno(
-          NodoHoja('c', 1),
-          NodoHoja('d', 1),
-          List('c', 'd'), 2),
-        NodoHoja('b', 3),
-        List('c','d','b'), 5),
-      List('g','h','e','f','c','d','b'), 9),
-    List('a','g','h','e','f','c','d','b'), 17)
+  // Se decodifica este mensaje secreto
+  val mensajeSecretoEsp = List(0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1,
+    0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0,
+    1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
+    0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1,
+    1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0,
+    0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1,
+    1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1)
 
-  /**
-    * Cadena con la que construir el árbol
-    */
-  val chars = stringAListaCaracteres("aaaaaaaabbbcdefgh")
+  //Ahora decodifico el mensaje con el arbol obtenido de el archivo regenta.txt
+  val mensajeDecodificadoEsp: List[Char] = decodificar(arbolRegenta, mensajeSecretoEsp)
 
-  // Árbol generado
-  val arbolGenerado = generarArbolCodificacion(chars)
+  //Ahora imprimo el mensaje decodificado en frances
+  println("Mensaje en español decodificado: " + mensajeDecodificadoEsp.mkString)
 
-  // Debe ser igual a árbol original
-  println("Árbol original == Árbol generado: " + (arbolOriginal == arbolGenerado))
+  //Ahora codifico el mensaje decodificado usando el metodo normal
+  val codificadoEsp = codificar(arbolRegenta,mensajeDecodificadoEsp)
+
+  //Ahora compruebo si el original coficicado es igual al codificado(debe serlo)
+  println("¿Es el mensaje secreto español igual al mensaje codificado?: " + (mensajeSecretoEsp == codificadoEsp))
+
 }
