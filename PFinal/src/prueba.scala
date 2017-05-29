@@ -10,24 +10,29 @@ object prueba extends App {
   /**
     * PRUEBA 1
     */
-  //Creo los nodos hoja
-  val a = NodoHoja('a',8)
-  val b = NodoHoja('b',3)
-  val c = NodoHoja('c',1)
-  val d = NodoHoja('d',1)
-  val e = NodoHoja('e',1)
-  val f = NodoHoja('f',1)
-  val g = NodoHoja('g',1)
-  val h = NodoHoja('h',1)
-
-  //Ahora uno los nodos en un arbol con ayuda de la función generarArbol, hasta tener el arbol formado
-  val hd: Nodo = Huffman.generarArbol(h,d)
-  val gc: Nodo = Huffman.generarArbol(g,c)
-  val hdgc: Nodo = Huffman.generarArbol(hd,gc)
-  val ef: Nodo = Huffman.generarArbol(e,f)
-  val efb: Nodo = Huffman.generarArbol(ef,b)
-  val bcdefgh: Nodo = Huffman.generarArbol(hdgc,efb)
-  val arbolOriginal: Nodo = Huffman.generarArbol(a,bcdefgh)
+  //Creo los el arbol de codificación a mano
+  val arbolOriginal = NodoInterno(
+    NodoHoja('a', 8),
+    NodoInterno(
+      NodoInterno(
+        NodoInterno(
+          NodoHoja('g', 1),
+          NodoHoja('h', 1),
+          List('g','h'), 2),
+        NodoInterno(
+          NodoHoja('e', 1),
+          NodoHoja('f', 1),
+          List('e','f'), 2),
+        List('g','h','e','f'), 4),
+      NodoInterno(
+        NodoInterno(
+          NodoHoja('c', 1),
+          NodoHoja('d', 1),
+          List('c', 'd'), 2),
+        NodoHoja('b', 3),
+        List('c','d','b'), 5),
+      List('g','h','e','f','c','d','b'), 9),
+    List('a','g','h','e','f','c','d','b'), 17)
 
   //Ahora paso el string con el que se va a construir el arbol a una lista de caracteres
   val listaCaracteres = stringAListaCaracteres("aaaaaaaabbbcdefgh")
