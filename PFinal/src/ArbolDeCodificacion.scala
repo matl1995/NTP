@@ -54,7 +54,7 @@ object ArbolDeCodificacion {
     //Lamamos a generarArbol para que nos genere el nodo intermedio con los dos hoja, y despues lo introducimos al principio de la lista nuevamente
     //("::" añade un elemento al principio de la lista) y eliminamos los dos nodos que fueron unidos
     //y ahora ordenamos la lista de manera que quede ordenada por pesos ascendentes de nuevo
-    (Huffman.generarArbol(nodos.head, nodos.tail.head) :: nodos.tail.tail).sortWith((nodo1, nodo2) => Huffman.calcularPeso(nodo1) < Huffman.calcularPeso(nodo2))
+    (FuncionesUtiles.generarArbol(nodos.head, nodos.tail.head) :: nodos.tail.tail).sortWith((nodo1, nodo2) => FuncionesUtiles.calcularPeso(nodo1) < FuncionesUtiles.calcularPeso(nodo2))
   }
 
   /**
